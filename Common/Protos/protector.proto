@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProtectorServices";
+
+package Protector;
+
+service Protector {
+	rpc IsChangeAllowedAsync (CheckChange) returns (CheckChangeResponse);
+}
+
+message CheckChange {
+	string target = 1;
+}
+
+message DependencyNotice {
+	string source = 1;
+	repeated string comments = 2;
+}
+
+message CheckChangeResponse {	
+
+	string target = 1;
+	bool permitted = 2;
+	repeated .Protector.DependencyNotice antecedents = 3;
+}

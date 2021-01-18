@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Orleans.CodeGenerator.MSBuild" Version="3.*" />
+    <PackageReference Include="Microsoft.Orleans.Core" Version="3.*" />
+    <PackageReference Include="Microsoft.Orleans.Runtime.Abstractions" Version="3.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Events\Events.csproj" />
+    <ProjectReference Include="..\Protectorate.Interfaces\Protectorate.Interfaces.csproj" />
+  </ItemGroup>
+</Project>

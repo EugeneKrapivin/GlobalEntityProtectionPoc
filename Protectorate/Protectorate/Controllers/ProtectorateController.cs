@@ -30,7 +30,7 @@ namespace Protectorate.Controllers
         {
             if (string.IsNullOrEmpty(id))
                 return BadRequest();
-            id = WebUtility.UrlDecode(id).Replace('/', '_');
+            id = WebUtility.UrlDecode(id);//.Replace('/', '_');
             using var scope = _logger.BeginScope(new { id });
 
             var grain = _clusterClient.GetGrain<IResourceProtector>(id);

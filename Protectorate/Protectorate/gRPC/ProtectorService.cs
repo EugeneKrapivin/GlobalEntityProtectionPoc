@@ -42,7 +42,7 @@ namespace Protectorate.gRPC
             var response = new CheckChangeResponse
             {
                 Target = request.Target,
-                Permitted = false
+                Permitted = true
             };
 
             foreach (var protector in antecedents)
@@ -55,6 +55,8 @@ namespace Protectorate.gRPC
                 notice.Comments.Add(protector.Comment);
 
                 response.Antecedents.Add(notice);
+                
+                response.Permitted = false;
             }
 
             return response;

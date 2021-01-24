@@ -37,7 +37,7 @@ namespace Protectorate.Grain
         public async Task OnNextAsync(UnprotectRequest item, StreamSequenceToken? token = null)
         {
             _logger.LogInformation($"Got message {item}");
-            var grainId = item.Target.ToString().Replace('/', '_');
+            var grainId = item.Target.ToString();//.Replace('/', '_');
             var grain = GrainFactory.GetGrain<IResourceProtector>(grainId);
 
             await grain.UnprotectResource(new ProtectedModel
